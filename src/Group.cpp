@@ -98,6 +98,21 @@ Group::Group(AppInfo* appInfo, bool pinned) : mGroupMenu(this)
 		G_CALLBACK(+[](GtkWidget* widget, GdkEventButton* event, Group* me) {
 			if (event->button != GDK_BUTTON_PRIMARY && event->button != GDK_BUTTON_MIDDLE)
 				return false;
+
+			if (event->button == GDK_BUTTON_PRIMARY)
+			{
+				if (me->mWindowsCount <= 1)
+				{
+					me->onButtonRelease(event);  // normal behavior (toggle)
+				}
+				else
+				{
+					me->scrollWindows(event->time, GDK_SCROLL_UP); // cycle instead
+				}
+
+				return true;
+			}
+
 			me->onButtonRelease(event);
 			return true;
 		}),
