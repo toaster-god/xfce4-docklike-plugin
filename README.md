@@ -46,3 +46,7 @@ To assist with troubleshooting plugin issues, please run Xfce Panel in debugging
 
 The Xfce wiki has more details on panel debugging:
 <https://docs.xfce.org/xfce/xfce4-panel/debugging>.
+
+-----------
+This fork changes the behavior of the default Mouse Button 1 event to act similar to the scroll wheel, cycling windows instead of the default hide/show behavior
+Scroll wheel is unaffected, Mouse Button 1 behavior is identical if only one window is open
